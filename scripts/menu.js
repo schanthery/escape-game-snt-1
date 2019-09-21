@@ -55,6 +55,13 @@ var menu = function (game) {
     var anneau_dos;
     var bt_croix_anneau;
     var bt_digicode_gandalf_on;
+    var accueil;
+    var prof;
+    var bt_help;
+    var alarm;
+    var ia;
+    var ia2;
+    var fin;
 }
 menu.prototype = {
     preload: function () {
@@ -101,7 +108,13 @@ menu.prototype = {
         this.game.load.image("digicode_gandalf_off","img/digicode_gandalf_off.png");
         this.game.load.spritesheet("bt_gandalf","img/bt_gandalf.png",130,130);
         this.game.load.image("anneau_dos","img/anneau_dos.png");
-      
+        this.game.load.image("accueil","img/accueil.png");
+        this.game.load.image("prof","img/prof.png");
+        this.game.load.spritesheet("bt_help","img/bt_help.png",200,121);
+        this.game.load.audio('alarm', 'audio/alarm.mp3');
+        this.game.load.audio('ia', 'audio/ia.mp3');
+        this.game.load.audio('ia2', 'audio/ia2.mp3');
+        this.game.load.image("fin","img/fin.png");
     },
     create:function() {
         // Center game canvas on page
@@ -112,7 +125,7 @@ menu.prototype = {
         this.fond = this.game.add.tileSprite(0, 0, 1024, 768, 'background');   
         porte=this.add.image(600, 110, 'porte')  
         this.add.image(0, 0, 'surfond') 
-        var tween = this.game.add.tween(porte).to( { x: [ 600,492 ]}, 5000, Phaser.Easing.Linear.None, true, false);
+        
         //tv
         this.bt_tv=this.game.add.button(0,285,"bt_tv",this.bt_tv,this,1,0,2,0)
         // placard
@@ -366,8 +379,23 @@ menu.prototype = {
             zoom: true,
         });
         this.zone_clavier_menu.visible=false;
-        // alumage des boutons
-        this.boutons_on()
+        // accueil
+        this.accueil=this.game.add.image(0,0,'accueil')
+        this.prof=this.game.add.image(0,220,'prof')
+        this.bt_help=this.game.add.button(785,650,"bt_help",this.bt_help,this,1,0,2,0)
+        this.bt_help.scale.x=0.7
+        this.bt_help.scale.y=0.7
+        this.prof.alpha=1
+        game.add.tween(this.prof).to( { alpha: 0 }, 30000, "Linear", true);
+        this.alarm = game.add.audio('alarm');
+        this.alarm.onStop.add(this.alarm_complete, this);
+        this.ia=game.add.audio('ia');
+        this.ia2=game.add.audio('ia2');
+        this.ia2.onStop.add(this.ia2_complete, this);
+        this.fin=this.game.add.image(0,0,'fin')
+        this.fin.visible=false;
+        // extinction des boutons
+        this.boutons_off()
         
 
     },
@@ -376,7 +404,6 @@ menu.prototype = {
     },
 
     bouton_clavier:function() {
-        console.log(' clavier down');
         this.boutons_off()
         this.clavier_menu.visible=true
         this.bouton_croix_clavier_menu.visible=true
@@ -588,7 +615,7 @@ menu.prototype = {
             this.python_ok.visible=true;
             this.python_bug.visible=false;
         }else{
-            console.log("no");
+            
             this.python_ok.visible=false;
             this.python_bug.visible=true;
         }
@@ -644,7 +671,9 @@ menu.prototype = {
             this.bt_ok_gandalf.visible=false;
             this.zone_gandalf.visible=false;
             var tween = this.game.add.tween(porte).to( { x: [492,600 ]}, 5000, "Sine.easeInOut", true, false);
-            this.boutons_on()
+            this.boutons_off()
+            this.ia2.play()
+
         }
 
     },
@@ -653,7 +682,7 @@ menu.prototype = {
         this.anneau_dos.visible=false;
         this.boutons_on()
     },
-    boutons_off(){
+    boutons_off:function(){
         this.bt_tv.inputEnabled=false;
         this.bt_placard.inputEnabled=false;
         this.bt_cadre1.inputEnabled=false;
@@ -667,7 +696,7 @@ menu.prototype = {
         this.pc2.inputEnabled=false;
         this.bouton_lecteur.inputEnabled=false;
     },
-    boutons_on(){
+    boutons_on:function(){
         this.bt_tv.inputEnabled=true;
         this.bt_placard.inputEnabled=true;
         this.bt_cadre1.inputEnabled=true;
@@ -680,5 +709,20 @@ menu.prototype = {
         this.bouton_clavier.inputEnabled=true;
         this.pc2.inputEnabled=true;
         this.bouton_lecteur.inputEnabled=true;
+    },
+    bt_help:function(){
+        this.alarm.play();
+        this.prof.visible=false;
+        this.accueil.visible=false;
+        var tween = this.game.add.tween(porte).to( { x: [ 600,492 ]}, 5000, Phaser.Easing.Linear.None, true, false);
+        this.bt_help.visible=false;
+        this.bt_help.inputEnabled=false;
+    },
+    alarm_complete:function(){
+        this.ia.play()
+        this.boutons_on()
+    },
+    ia2_complete:function(){
+        this.fin.visible=true;
     }
 }
