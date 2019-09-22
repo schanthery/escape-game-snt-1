@@ -77,10 +77,10 @@ menu.prototype = {
         //
         this.game.load.image('background', 'img/fond.jpg');
         this.game.load.image('surfond','img/surfond.png');
-        this.game.load.image('porte','img/porte.png')
-        this.game.load.image('clavier','img/clavier.png')
-        this.game.load.image('clavier2','img/clavier2.png')
-        this.game.load.image('croix','img/croix.png')
+        this.game.load.image('porte','img/porte.png');
+        this.game.load.image('clavier','img/clavier.png');
+        this.game.load.image('clavier2','img/clavier2.png');
+        this.game.load.image('croix','img/croix.png');
         this.game.load.spritesheet('clavier_sheet', 'img/clavier_sheet150.png', 33, 51);
         this.game.load.image('clavier_menu','img/clavier2.png');
         this.game.load.spritesheet('croix_sheet', 'img/croix_sheet.png', 30, 30);
@@ -136,10 +136,10 @@ menu.prototype = {
         this.game.scale.pageAlignHorizontally = true;
         this.game.scale.pageAlignVertically = true;
         this.fond = this.game.add.tileSprite(0, 0, 1024, 768, 'background');   
-        porte=this.add.image(600, 110, 'porte')  
-        this.add.image(0, 0, 'surfond') 
+        porte=this.add.image(600, 110, 'porte');
+        this.add.image(0, 0, 'surfond');
         //tv
-        this.bt_tv=this.game.add.button(0,285,"bt_tv",this.bt_tv,this,1,0,2,0)
+        this.bt_tv=this.game.add.button(0,285,"bt_tv",this.bt_tv,this,1,0,2,0);
         // placard
         this.bt_placard=this.game.add.button(15,500,"bt_placard",this.bt_placard,this,1,0,2,0);
         // pc2
@@ -162,22 +162,22 @@ menu.prototype = {
         // bt_postit
         this.bt_postit=this.game.add.button(850,510,'bt_postit',this.bt_postit,this,1,0,2,0);
         // zone lecteur de carte
-        this.bt_pc1=this.game.add.button(215,565,"bt_pc1",this.bt_pc1,this,1,0,2,0)
-        this.bouton_lecteur=this.game.add.button(120,690,"bt_lecteur",this.bt_lecteur,this,1,0,2,0)
+        this.bt_pc1=this.game.add.button(215,565,"bt_pc1",this.bt_pc1,this,1,0,2,0);
+        this.bouton_lecteur=this.game.add.button(120,690,"bt_lecteur",this.bt_lecteur,this,1,0,2,0);
         this.menu_lecteur=this.game.add.image(0,0,'menu_lecteur');
         this.bouton_carte=this.game.add.button(450,340,"bt_carte",this.bt_carte,this,1,0,2,0);
-        this.bouton_croix_lecteur_menu=this.game.add.button(660,200,"croix_sheet",this.bouton_croix_lecteur_menu,this,1,0,2,0)
+        this.bouton_croix_lecteur_menu=this.game.add.button(660,200,"croix_sheet",this.bouton_croix_lecteur_menu,this,1,0,2,0);
         this.menu_lecteur.visible=false;
         this.bouton_croix_lecteur_menu.visible=false;
         this.bouton_carte.visible=false;
         this.carte_code=this.game.add.image(0,100,'carte_code');
         this.carte_code.visible=false;
-        this.bouton_croix_carte=this.game.add.button(975,110,"croix_sheet",this.bouton_croix_carte,this,1,0,2,0)
+        this.bouton_croix_carte=this.game.add.button(975,110,"croix_sheet",this.bouton_croix_carte,this,1,0,2,0);
         this.bouton_croix_carte.visible=false;
         // zone écran pc1
         this.flag_pc1=false;
-		this.ecran_pc1=this.game.add.image(0,0,"pc1_ecran")
-		this.bouton_croix_ecran_pc1=this.game.add.button(960,20,"croix_sheet",this.bouton_croix_ecran_pc1,this,1,0,2,0)
+		this.ecran_pc1=this.game.add.image(0,0,"pc1_ecran");
+		this.bouton_croix_ecran_pc1=this.game.add.button(960,20,"croix_sheet",this.bouton_croix_ecran_pc1,this,1,0,2,0);
 		this.zone_ecran_pc1 = game.add.inputField(462, 280, {
             font: '20px Arial',
             fill: '#000000',
@@ -193,40 +193,40 @@ menu.prototype = {
             textAlign: 'left',
             zoom: true,
         });
-        this.bt_ok=this.game.add.button(630,275,"bt_ok",this.bt_ok,this,1,0,2,0)
+        this.bt_ok=this.game.add.button(630,275,"bt_ok",this.bt_ok,this,1,0,2,0);
         this.ecran_pc1.visible=false;
         this.zone_ecran_pc1.visible=false;
         this.bouton_croix_ecran_pc1.visible=false;
         this.bt_ok.visible=false;
         
-        this.placard=this.game.add.image(220,70,"placard")
+        this.placard=this.game.add.image(220,70,"placard");
         this.placard.visible=false;
         this.bt_codex=this.game.add.button(300,320,"bt_codex",this.bt_codex,this,1,0,2,0);
         this.bt_codex.visible=false;
-        this.bt_croix_placard=this.game.add.button(750,80,"croix_sheet",this.bt_croix_placard,this,1,0,2,0)
-        this.bt_croix_placard.visible=false
+        this.bt_croix_placard=this.game.add.button(750,80,"croix_sheet",this.bt_croix_placard,this,1,0,2,0);
+        this.bt_croix_placard.visible=false;
         // ecran 1
         
         this.ecran1=this.game.add.image(0,0,"ecran1");
-        this.ecran1.visible=false
-        this.bt_download=this.game.add.button(540,73,"bt_download",this.bt_download,this,1,0,2,0)
-        this.bt_download.visible=false
-        this.bt_croix_ecran1=this.game.add.button(980,5,"croix_sheet",this.bt_croix_ecran1,this,1,0,2,0)
-        this.bt_croix_ecran1.visible=false
+        this.ecran1.visible=false;
+        this.bt_download=this.game.add.button(540,73,"bt_download",this.bt_download,this,1,0,2,0);
+        this.bt_download.visible=false;
+        this.bt_croix_ecran1=this.game.add.button(980,5,"croix_sheet",this.bt_croix_ecran1,this,1,0,2,0);
+        this.bt_croix_ecran1.visible=false;
         //tv
         
         this.tv=this.game.add.image(0,0,"tv");
         this.tv.visible=false;
         this.bt_croix_tv=this.game.add.button(980,5,"croix_sheet",this.bt_croix_tv,this,1,0,2,0);
         this.bt_croix_tv.visible=false;
-        this.clavier_menu=this.game.add.image(0,0,'clavier_menu')
+        this.clavier_menu=this.game.add.image(0,0,'clavier_menu');
         this.clavier_menu.visible=false;
-        this.bouton_croix_clavier_menu=this.game.add.button(660,145,"croix_sheet",this.croix_menu_clavier,this,1,0,2,0)
+        this.bouton_croix_clavier_menu=this.game.add.button(660,145,"croix_sheet",this.croix_menu_clavier,this,1,0,2,0);
         this.bouton_croix_clavier_menu.visible=false;
-        this.bouton_valider_clavier_menu=this.game.add.button(555,535,"bt_valider_clavier_menu",this.bt_valider_clavier_menu,this,1,0,2,0)
+        this.bouton_valider_clavier_menu=this.game.add.button(555,535,"bt_valider_clavier_menu",this.bt_valider_clavier_menu,this,1,0,2,0);
         this.bouton_valider_clavier_menu.visible=false;
         this.texte_clavier_menu=this.game.add.text(385, 550, "Ce n'est pas le bon code", this.style_bleu);
-        this.texte_clavier_menu.visible=false
+        this.texte_clavier_menu.visible=false;
         this.zone_clavier_menu = game.add.inputField(480, 535, {
             font: '18px Arial',
             fill: '#000000',
@@ -247,15 +247,15 @@ menu.prototype = {
         this.pc2_on=this.game.add.image(0,0,"pc2_on");
         this.bt_croix_pc2=this.game.add.button(980,15,"croix_sheet",this.bt_croix_pc2,this,1,0,2,0);
         this.bt_croix_pc2.visible=false;
-        this.pc2_on.visible=false
+        this.pc2_on.visible=false;
         this.style_blanc = { font: "40px Arial", fill: "#FFFFFF", align: "center" };
-        this.icon=new Array()
-        this.icon_text=new Array()
+        this.icon=new Array();
+        this.icon_text=new Array();
         var i;
         var j;
         this.flag_pc2=false;
-        var ext=["XLS","CSV","JPG","XML","JSON","PDF","AVI","DOC","ZIP"]
-        this.tab_couleur=[0xCCFF33,0xCC0000,0x0000FF,0x00FF00,0xFF9900,0x9900CC,0x666633,0x008080,0x800000]
+        var ext=["XLS","CSV","JPG","XML","JSON","PDF","AVI","DOC","ZIP"];
+        this.tab_couleur=[0xCCFF33,0xCC0000,0x0000FF,0x00FF00,0xFF9900,0x9900CC,0x666633,0x008080,0x800000];
         var k=0;
         for (i=0;i<3;i++)
         {
@@ -272,22 +272,22 @@ menu.prototype = {
             this.icon_text.push(texte_ico);
             k=k+1;
             this.texte_clavier_menu.visible=false
-            }
-        }
-        this.bt_ok_pc2=this.game.add.button(900,500,"bt_ok",this.bt_ok_pc2,this,1,0,2,0)
+            };
+        };
+        this.bt_ok_pc2=this.game.add.button(900,500,"bt_ok",this.bt_ok_pc2,this,1,0,2,0);
         this.bt_ok_pc2.visible=false;
         for (i=0;i<9;i++){
             this.icon[i].visible=false;
             this.icon_text[i].visible=false;
-        }
-        this.clavier_menu=this.game.add.image(0,0,'clavier_menu')
+        };
+        this.clavier_menu=this.game.add.image(0,0,'clavier_menu');
         this.clavier_menu.visible=false;
-        this.bouton_croix_clavier_menu=this.game.add.button(660,145,"croix_sheet",this.croix_menu_clavier,this,1,0,2,0)
+        this.bouton_croix_clavier_menu=this.game.add.button(660,145,"croix_sheet",this.croix_menu_clavier,this,1,0,2,0);
         this.bouton_croix_clavier_menu.visible=false;
-        this.bouton_valider_clavier_menu=this.game.add.button(555,535,"bt_valider_clavier_menu",this.bt_valider_clavier_menu,this,1,0,2,0)
+        this.bouton_valider_clavier_menu=this.game.add.button(555,535,"bt_valider_clavier_menu",this.bt_valider_clavier_menu,this,1,0,2,0);
         this.bouton_valider_clavier_menu.visible=false;
         this.texte_clavier_menu=this.game.add.text(385, 550, "Ce n'est pas le bon code", this.style_bleu);
-        this.texte_clavier_menu.visible=false
+        this.texte_clavier_menu.visible=false;
         this.zone_clavier_menu = game.add.inputField(480, 535, {
             font: '18px Arial',
             fill: '#000000',
@@ -329,14 +329,14 @@ menu.prototype = {
             
         });
         this.zone_pc2_python.setText(",");
-        this.bt_run=this.game.add.button(105,55,"bt_run",this.bt_run,this,1,0,2,0)
+        this.bt_run=this.game.add.button(105,55,"bt_run",this.bt_run,this,1,0,2,0);
         this.python_bug=this.game.add.image(20,350,"python_bug");
         this.python_ok=this.game.add.image(20,230,"python_ok");
         this.python_ok.visible=false;
         this.python_bug.visible=false;
         this.bt_run.visible=false;
-        this.zone_pc2_python.visible=false
-        this.pc2_python.visible=false
+        this.zone_pc2_python.visible=false;
+        this.pc2_python.visible=false;
         this.bt_croix_pc2_python=this.game.add.button(990,4,"croix_sheet",this.bt_croix_pc2_python,this,1,0,2,0);
         this.bt_croix_pc2_python.visible=false;
         // gandalf digicode
@@ -344,7 +344,7 @@ menu.prototype = {
         this.digicode_gandalf.visible=false;
         this.digicode_gandalf_off=this.game.add.image(0,0,"digicode_gandalf_off");
         this.digicode_gandalf_off.visible=false;
-        this.bt_gandalf=this.game.add.button(450,180,"bt_gandalf",this.bt_gandalf,this,1,0,2,0)
+        this.bt_gandalf=this.game.add.button(450,180,"bt_gandalf",this.bt_gandalf,this,1,0,2,0);
         this.bt_croix_gandalf=this.game.add.button(990,4,"croix_sheet",this.bt_croix_gandalf,this,1,0,2,0);
         this.zone_gandalf = game.add.inputField(450, 385, {
             font: '20px Arial',
@@ -362,7 +362,7 @@ menu.prototype = {
             textAlign: 'center',
             zoom: true,
         });
-        this.bt_ok_gandalf=this.game.add.button(570,382,"bt_ok",this.bt_ok_gandalf,this,1,0,2,0)
+        this.bt_ok_gandalf=this.game.add.button(570,382,"bt_ok",this.bt_ok_gandalf,this,1,0,2,0);
         this.digicode_gandalf.visible=false;
         this.bt_gandalf.visible=false;
         this.bt_croix_gandalf.visible=false;
@@ -374,14 +374,14 @@ menu.prototype = {
         this.anneau_dos.visible=false;
         this.bt_croix_anneau.visible=false;
         // menu clavier
-        this.clavier_menu=this.game.add.image(0,0,'clavier_menu')
+        this.clavier_menu=this.game.add.image(0,0,'clavier_menu');
         this.clavier_menu.visible=false;
-        this.bouton_croix_clavier_menu=this.game.add.button(660,145,"croix_sheet",this.croix_menu_clavier,this,1,0,2,0)
+        this.bouton_croix_clavier_menu=this.game.add.button(660,145,"croix_sheet",this.croix_menu_clavier,this,1,0,2,0);
         this.bouton_croix_clavier_menu.visible=false;
-        this.bouton_valider_clavier_menu=this.game.add.button(555,535,"bt_valider_clavier_menu",this.bt_valider_clavier_menu,this,1,0,2,0)
+        this.bouton_valider_clavier_menu=this.game.add.button(555,535,"bt_valider_clavier_menu",this.bt_valider_clavier_menu,this,1,0,2,0);
         this.bouton_valider_clavier_menu.visible=false;
         this.texte_clavier_menu=this.game.add.text(385, 550, "Ce n'est pas le bon code", this.style_bleu);
-        this.texte_clavier_menu.visible=false
+        this.texte_clavier_menu.visible=false;
         this.zone_clavier_menu = game.add.inputField(430, 535, {
             font: '18px Arial',
             fill: '#000000',
@@ -399,33 +399,33 @@ menu.prototype = {
         });
         this.zone_clavier_menu.visible=false;
         // livre
-        this.livre=this.game.add.image(0,0,'livre')
+        this.livre=this.game.add.image(0,0,'livre');
         this.livre.visible=false;
-        this.bt_croix_livre=this.game.add.button(960,15,"croix_sheet",this.bt_croix_livre,this,1,0,2,0)
+        this.bt_croix_livre=this.game.add.button(960,15,"croix_sheet",this.bt_croix_livre,this,1,0,2,0);
         this.bt_croix_livre.visible=false;
         
         // postit
-        this.postit=this.game.add.image(0,0,'postit')
+        this.postit=this.game.add.image(0,0,'postit');
         this.postit.visible=false;
-        this.bt_croix_postit=this.game.add.button(960,15,"croix_sheet",this.bt_croix_postit,this,1,0,2,0)
+        this.bt_croix_postit=this.game.add.button(960,15,"croix_sheet",this.bt_croix_postit,this,1,0,2,0);
         this.bt_croix_postit.visible=false;
         // accueil
-        this.accueil=this.game.add.image(0,0,'accueil')
-        this.prof=this.game.add.image(0,220,'prof')
-        this.bt_help=this.game.add.button(785,650,"bt_help",this.bt_help,this,1,0,2,0)
-        this.bt_help.scale.x=0.7
-        this.bt_help.scale.y=0.7
-        this.prof.alpha=1
+        this.accueil=this.game.add.image(0,0,'accueil');
+        this.prof=this.game.add.image(0,220,'prof');
+        this.bt_help=this.game.add.button(785,650,"bt_help",this.bt_help,this,1,0,2,0);
+        this.bt_help.scale.x=0.7;
+        this.bt_help.scale.y=0.7;
+        this.prof.alpha=1;
         game.add.tween(this.prof).to( { alpha: 0 }, 30000, "Linear", true);
         this.alarm = game.add.audio('alarm');
         this.alarm.onStop.add(this.alarm_complete, this);
         this.ia=game.add.audio('ia');
         this.ia2=game.add.audio('ia2');
         this.ia2.onStop.add(this.ia2_complete, this);
-        this.fin=this.game.add.image(0,0,'fin')
+        this.fin=this.game.add.image(0,0,'fin');
         this.fin.visible=false;
         // extinction des boutons
-        this.boutons_off()
+        this.boutons_off();
         
 
     },
@@ -434,9 +434,9 @@ menu.prototype = {
     },
 
     bouton_clavier:function() {
-        this.boutons_off()
-        this.clavier_menu.visible=true
-        this.bouton_croix_clavier_menu.visible=true
+        this.boutons_off();
+        this.clavier_menu.visible=true;
+        this.bouton_croix_clavier_menu.visible=true;
         this.zone_clavier_menu.visible=true;
         this.bouton_valider_clavier_menu.visible=true;
     },
@@ -445,31 +445,31 @@ menu.prototype = {
         this.bouton_croix_clavier_menu.visible=false;
         this.zone_clavier_menu.visible=false;
         this.bouton_valider_clavier_menu.visible=false;
-        this.texte_clavier_menu.visible=false
-        this.boutons_on()
+        this.texte_clavier_menu.visible=false;
+        this.boutons_on();
     },
     bt_valider_clavier_menu:function(){
         if (this.zone_clavier_menu.value=="281576461"){
-            this.texte_clavier_menu.visible=false
+            this.texte_clavier_menu.visible=false;
             this.clavier_menu.visible=false;
             this.bouton_croix_clavier_menu.visible=false;
             this.zone_clavier_menu.visible=false;
             this.bouton_valider_clavier_menu.visible=false;
-            this.texte_clavier_menu.visible=false
+            this.texte_clavier_menu.visible=false;
             this.bt_digicode_gandalf_on.visible=true;
             this.bt_digicode_gandalf.visible=false;
-            this.boutons_on()
+            this.boutons_on();
             
 
         }else{
-            this.texte_clavier_menu.visible=true
-        }
+            this.texte_clavier_menu.visible=true;
+        };
     },
     bt_lecteur:function(){
         this.menu_lecteur.visible=true;
         this.bouton_croix_lecteur_menu.visible=true;
         this.bouton_carte.visible=true;
-        this.boutons_off()
+        this.boutons_off();
     },
     bt_carte:function(){
         var url="img/carte_code.png";
@@ -498,12 +498,13 @@ menu.prototype = {
             this.ecran_pc1.visible=true;
             this.zone_ecran_pc1.visible=true;
             this.bt_ok.visible=true;
-            this.boutons_off()
+            this.boutons_off();
         }else{
-            this.bt_croix_ecran1.visible=true
-            this.bt_download.visible=true
-            this.ecran1.visible=true
-        }
+            this.bt_croix_ecran1.visible=true;
+            this.bt_download.visible=true;
+            this.ecran1.visible=true;
+            this.boutons_off();
+        };
      
     },
 	bouton_croix_ecran_pc1:function(){
@@ -512,34 +513,34 @@ menu.prototype = {
         this.bouton_croix_ecran_pc1.visible=false;
         this.zone_ecran_pc1.visible=false;
         this.bt_ok.visible=false;
-        this.boutons_on()
+        this.boutons_on();
     },
     bt_ok:function(){
         if (this.zone_ecran_pc1.value=="VISICALC"){
             this.flag_pc1=true;
-            this.bt_croix_ecran1.visible=true
-            this.bt_download.visible=true
-            this.ecran1.visible=true
-        }
+            this.bt_croix_ecran1.visible=true;
+            this.bt_download.visible=true;
+            this.ecran1.visible=true;
+        };
     },
     bt_placard:function(){
         this.placard.visible=true;
         this.bt_codex.visible=true;
         this.bt_croix_placard.visible=true;
-        this.boutons_off()
+        this.boutons_off();
     },
     bt_codex:function(){
-        var url="img/codex.png"
+        var url="img/codex.png";
         var win = window.open(url, '_blank');
     },
     bt_croix_placard:function(){
         this.placard.visible=false;
         this.bt_codex.visible=false;
         this.bt_croix_placard.visible=false;
-        this.boutons_on()
+        this.boutons_on();
     },
     bt_download:function(){
-        var url="img/boxoffice.csv"
+        var url="img/boxoffice.csv";
         var win = window.open(url, '_blank');
     },
     bt_croix_ecran1:function(){
@@ -551,65 +552,65 @@ menu.prototype = {
         this.bouton_croix_ecran_pc1.visible=false;
         this.zone_ecran_pc1.visible=false;
         this.bt_ok.visible=false;
-        this.boutons_on()
+        this.boutons_on();
     },
     bt_tv:function(){
         this.tv.visible=true;
         this.bt_croix_tv.visible=true;
-        this.boutons_off()
+        this.boutons_off();
     },
     bt_croix_tv:function(){
-        this.tv.visible=false
+        this.tv.visible=false;
         this.bt_croix_tv.visible=false;
-        this.boutons_on()
+        this.boutons_on();
 
     },
     pc2:function(){
         this.boutons_off()
         if (this.flag_pc2==false){
             this.bt_croix_pc2.visible=true;
-            this.pc2_on.visible=true
+            this.pc2_on.visible=true;
             this.bt_ok_pc2.visible=true;
             for (i=0;i<9;i++){
                 this.icon[i].visible=true;
-                this.icon[i].tint=0x00000
+                this.icon[i].tint=0x00000;
                 this.icon_text[i].visible=true;
-            }
+            };
         }else{
             this.bt_ok_pc2.visible=false;
             for (i=0;i<9;i++){
                 this.icon[i].visible=false;
                 this.icon_text[i].visible=false;
-            }
-            this.pc2_on.visible=false
+            };
+            this.pc2_on.visible=false;
             this.bt_croix_pc2.visible=false;
             this.python_bug.visible=false;
             this.bt_run.visible=true;
             this.zone_pc2_python.visible=true;
-            this.pc2_python.visible=true
+            this.pc2_python.visible=true;
             this.bt_croix_pc2_python.visible=true;
-            this.boutons_off()
+            this.boutons_off();
 
-        }
+        };
     },
     bt_croix_pc2:function(){
-        this.boutons_on()
+        this.boutons_on();
         this.bt_croix_pc2.visible=false;
         this.pc2_on.visible=false;
         this.bt_ok_pc2.visible=false;
-        this.pc2_on.visible=false
+        this.pc2_on.visible=false;
         for (i=0;i<9;i++){
             this.icon[i].visible=false;
             this.icon_text[i].visible=false;
-        }
+        };
     },
     ico_click:function(sprite, pointer){
         if (sprite.tint==0x00000){
-            var k=this.icon.indexOf(sprite)
-            sprite.tint=this.tab_couleur[k]
+            var k=this.icon.indexOf(sprite);
+            sprite.tint=this.tab_couleur[k];
         }else{
-            sprite.tint=0x00000
-        }
+            sprite.tint=0x00000;
+        };
     },
     bt_ok_pc2:function(){
         var i;
@@ -619,47 +620,47 @@ menu.prototype = {
             if (i==1 || i==3 || i==4){
                 if (this.icon[i].tint==0x00000){
                     q=false;
-                }
+                };
             }else{
                 if(this.icon[i].tint!=0x00000){
                     q=false;
-                }     
+                };    
             }         
         }
         
         if (q==false){
             for (i=0;i<9;i++){
-                this.icon[i].tint=0x00000
-            }
+                this.icon[i].tint=0x00000;
+            };
         }else{
             this.flag_pc2=true;
             this.bt_ok_pc2.visible=false;
             for (i=0;i<9;i++){
                 this.icon[i].visible=false;
                 this.icon_text[i].visible=false;
-            }
-            this.pc2_on.visible=false
+            };
+            this.pc2_on.visible=false;
             this.bt_croix_pc2.visible=false;
             this.python_bug.visible=false;
             this.bt_run.visible=true;
             this.zone_pc2_python.visible=true;
-            this.pc2_python.visible=true
+            this.pc2_python.visible=true;
             this.bt_croix_pc2_python.visible=true;
-            this.boutons_off()
-        }
+            this.boutons_off();
+        };
     },
     bt_cadre1:function(){
         this.bt_croix_cadre1.visible=true;
         this.cadre1.visible=true;
-        this.boutons_off()
+        this.boutons_off();
     },
     bt_croix_cadre1:function(){
         this.bt_croix_cadre1.visible=false;
         this.cadre1.visible=false;
-        this.boutons_on()
+        this.boutons_on();
     },
     bt_matrix:function(){
-        var url="https://youtu.be/8xx91zoASLY"
+        var url="https://youtu.be/wW7LbGHE0yQ";
         var win = window.open(url, '_blank');
     },
     bt_run:function(){
@@ -670,7 +671,7 @@ menu.prototype = {
             
             this.python_ok.visible=false;
             this.python_bug.visible=true;
-        }
+        };
     },
     bt_croix_pc2_python:function(){
         this.python_ok.visible=false;
@@ -679,12 +680,12 @@ menu.prototype = {
         this.bt_run.visible=false;
         this.pc2_python.visible=false;
         this.bt_croix_pc2_python.visible=false;
-        this.boutons_on()
+        this.boutons_on();
     },
     bt_anneau:function(){
         this.bt_croix_anneau.visible=true;
         this.anneau_dos.visible=true;
-        this.boutons_off()
+        this.boutons_off();
     },
     bt_digicode_gandalf_on:function(){
         this.digicode_gandalf.visible=true;
@@ -692,39 +693,37 @@ menu.prototype = {
         this.bt_croix_gandalf.visible=true;
         this.bt_ok_gandalf.visible=true;
         this.zone_gandalf.visible=true;
-        this.boutons_off()
+        this.boutons_off();
     },
     bt_digicode_gandalf:function(){
         this.digicode_gandalf_off.visible=true;
         this.digicode_gandalf.visible=false;
         this.bt_croix_gandalf.visible=true;
-        this.boutons_off()
-        //this.bt_ok_gandalf.visible=true;
-        //this.zone_gandalf.visible=true;
+        this.boutons_off();
     },
     bt_gandalf:function(){
-        var url="https://youtu.be/Ygnez_odlNg"
+        var url="https://youtu.be/Ygnez_odlNg";
         var win = window.open(url, '_blank');
     },
     bt_croix_gandalf:function(){
         this.digicode_gandalf.visible=false;
         this.bt_gandalf.visible=false;
-        this.bt_croix_gandalf.visible=false
+        this.bt_croix_gandalf.visible=false;
         this.bt_ok_gandalf.visible=false;
         this.zone_gandalf.visible=false;
         this.digicode_gandalf_off.visible=false;
-        this.boutons_on()
+        this.boutons_on();
     },
     bt_ok_gandalf:function(){
         if (this.zone_gandalf.value=="7564"){
             this.digicode_gandalf.visible=false;
             this.bt_gandalf.visible=false;
-            this.bt_croix_gandalf.visible=false
+            this.bt_croix_gandalf.visible=false;
             this.bt_ok_gandalf.visible=false;
             this.zone_gandalf.visible=false;
             var tween = this.game.add.tween(porte).to( { x: [492,600 ]}, 5000, "Sine.easeInOut", true, false);
-            this.boutons_off()
-            this.ia2.play()
+            this.boutons_off();
+            this.ia2.play();
 
         }
 
@@ -732,7 +731,7 @@ menu.prototype = {
     bt_croix_anneau:function(){
         this.bt_croix_anneau.visible=false;
         this.anneau_dos.visible=false;
-        this.boutons_on()
+        this.boutons_on();
     },
     boutons_off:function(){
         this.bt_tv.inputEnabled=false;
@@ -775,8 +774,8 @@ menu.prototype = {
         this.bt_help.inputEnabled=false;
     },
     alarm_complete:function(){
-        this.ia.play()
-        this.boutons_on()
+        this.ia.play();
+        this.boutons_on();
     },
     ia2_complete:function(){
         this.fin.visible=true;
@@ -784,22 +783,22 @@ menu.prototype = {
     bt_livre:function(){
         this.livre.visible=true;
         this.bt_croix_livre.visible=true;
-        this.boutons_off()
+        this.boutons_off();
     },
     bt_croix_livre:function(){
         this.livre.visible=false;
         this.bt_croix_livre.visible=false;
-        this.boutons_on()
+        this.boutons_on();
     },
     bt_postit:function(){
         this.postit.visible=true;
         this.bt_croix_postit.visible=true;
-        this.boutons_off()
+        this.boutons_off();
     },
     bt_croix_postit:function(){
         this.postit.visible=false;
         this.bt_croix_postit.visible=false;
-        this.boutons_on()
+        this.boutons_on();
     }
     
 }
