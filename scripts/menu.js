@@ -71,65 +71,15 @@ var menu = function (game) {
     var postit;
     var bt_postit;
     var bt_croix_postit;
+    var bt_delimiter;
+    var debug;
 }
 menu.prototype = {
     preload: function () {
-        //
-        this.game.load.image('background', 'img/fond.jpg');
-        this.game.load.image('surfond','img/surfond.png');
-        this.game.load.image('porte','img/porte.png');
-        this.game.load.image('clavier','img/clavier.png');
-        this.game.load.image('clavier2','img/clavier2.png');
-        this.game.load.image('croix','img/croix.png');
-        this.game.load.spritesheet('clavier_sheet', 'img/clavier_sheet150.png', 33, 51);
-        this.game.load.image('clavier_menu','img/clavier2.png');
-        this.game.load.spritesheet('croix_sheet', 'img/croix_sheet.png', 30, 30);
-        this.game.load.spritesheet('bt_valider_clavier_menu', 'img/bouton_valider_petit.png', 100, 35);
-        this.style_bleu = { font: "30px Arial", fill: "#01B0FF", align: "Left" };
-        this.game.load.spritesheet('bt_lecteur', 'img/lecteur.png', 120, 100);
-        this.game.load.image("menu_lecteur","img/menu_lecteur.png");
-        this.game.load.image("carte_code","img/carte_code.png");
-        this.game.load.spritesheet("bt_carte","img/carte.png",100,100);
-        this.game.load.spritesheet("bt_pc1","img/pc1.png",294,205);
-        this.game.load.spritesheet("bt_ok","img/bt_ok.png",40,40);
-        this.game.load.spritesheet("bt_placard","img/placard.png",81,72);
-        this.game.load.image("pc1_ecran","img/pc1_ecran.png");
-        this.game.load.image("placard","img/placard_inside.png");
-        this.game.load.spritesheet("bt_codex","img/bt_codex.png",259,65);
-        this.game.load.image("ecran1","img/ecran1.png");
-        this.game.load.spritesheet("bt_download","img/bt_download.png",33,33);
-        this.game.load.spritesheet("bt_tv","img/bt_tv.png",316,187);
-        this.game.load.image("tv","img/tv.png");
-        this.game.load.spritesheet("pc2","img/pc2.png",308,269);
-        this.game.load.image("pc2_on","img/pc2_on.png");
-        this.game.load.spritesheet("file_icon","img/file_icon.png",140,160);
-        this.game.load.image("cadre1","img/cadre1.png");
-        this.game.load.spritesheet("bt_cadre1","img/bt_cadre1.png",90,132);
-        this.game.load.spritesheet("bt_matrix","img/bt_matrix.png",231,448);
-        this.game.load.image("pc2_python","img/pc2_open.png");
-        this.game.load.spritesheet("bt_run","img/bt_run.png",29,14);
-        this.game.load.image("python_bug","img/python_bug.png");
-        this.game.load.image("python_ok","img/python_ok.png");
-        this.game.load.spritesheet("bt_anneau","img/bt_anneau.png",155,111);
-        this.game.load.spritesheet("bt_digicode_gandalf","img/bt_digicode_gandalf.png",40,50);
-        this.game.load.spritesheet("bt_digicode_gandalf_on","img/bt_digicode_gandalf_on.png",40,50);
-        this.game.load.image("digicode_gandalf","img/digicode_gandalf.png");
-        this.game.load.image("digicode_gandalf_off","img/digicode_gandalf_off.png");
-        this.game.load.spritesheet("bt_gandalf","img/bt_gandalf.png",130,130);
-        this.game.load.image("anneau_dos","img/anneau_dos.png");
-        this.game.load.image("accueil","img/accueil.png");
-        this.game.load.image("prof","img/prof.png");
-        this.game.load.spritesheet("bt_help","img/bt_help.png",200,121);
-        this.game.load.audio('alarm', 'audio/alarm.mp3');
-        this.game.load.audio('ia', 'audio/ia.mp3');
-        this.game.load.audio('ia2', 'audio/ia2.mp3');
-        this.game.load.image("fin","img/fin.png");
-        this.game.load.image('livre','img/livre.png');
-        this.game.load.spritesheet('bt_livre','img/bt_livre.png',60,37);
-        this.game.load.image('postit','img/postit.png');
-        this.game.load.spritesheet('bt_postit','img/bt_postit.png',50,48);
+        
     },
     create:function() {
+        this.debug=false;
         // Center game canvas on page
         this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         //this.game.stage.scale.setShowAll();
@@ -209,7 +159,9 @@ menu.prototype = {
         
         this.ecran1=this.game.add.image(0,0,"ecran1");
         this.ecran1.visible=false;
-        this.bt_download=this.game.add.button(540,73,"bt_download",this.bt_download,this,1,0,2,0);
+        this.bt_download=this.game.add.button(520,73,"bt_download",this.bt_download,this,1,0,2,0);
+        this.bt_download.alpha=0;
+        game.add.tween(this.bt_download).to( { alpha: 1 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true);
         this.bt_download.visible=false;
         this.bt_croix_ecran1=this.game.add.button(980,5,"croix_sheet",this.bt_croix_ecran1,this,1,0,2,0);
         this.bt_croix_ecran1.visible=false;
@@ -262,9 +214,9 @@ menu.prototype = {
             for (j=0;j<3;j++)
             {
             var ico=this.game.add.sprite(300 + 160*i,30+j*180,"file_icon");
-            ico.frame=0
-            ico.tint=0x00000
-            ico.inputEnabled=true
+            ico.frame=0;
+            ico.tint=0x00000;
+            ico.inputEnabled=true;
             ico.input.useHandCursor = true;
             ico.events.onInputDown.add(this.ico_click, this);
             this.icon.push(ico);
@@ -311,6 +263,8 @@ menu.prototype = {
         this.cadre1.visible=false;
         // pc2 open
         this.pc2_python=this.game.add.image(0,0,"pc2_python");
+        this.bt_delimiter=this.game.add.button(430,156,"bt_delimiter",this.bt_delimiter,this,1,0,2,0);
+        this.bt_delimiter.visible=false;
         this.zone_pc2_python = game.add.inputField(535, 145, {
             font: '20px Arial',
             fill: '#000000',
@@ -329,6 +283,7 @@ menu.prototype = {
             
         });
         this.zone_pc2_python.setText(",");
+        
         this.bt_run=this.game.add.button(105,55,"bt_run",this.bt_run,this,1,0,2,0);
         this.python_bug=this.game.add.image(20,350,"python_bug");
         this.python_ok=this.game.add.image(20,230,"python_ok");
@@ -426,6 +381,14 @@ menu.prototype = {
         this.fin.visible=false;
         // extinction des boutons
         this.boutons_off();
+        if (this.debug==true){
+            this.prof.visible=false;
+            this.accueil.visible=false;
+            var tween = this.game.add.tween(porte).to( { x: [ 600,492 ]}, 5000, Phaser.Easing.Linear.None, true, false);
+            this.bt_help.visible=false;
+            this.bt_help.inputEnabled=false;
+            this.alarm_complete()
+        }
         
 
     },
@@ -449,7 +412,7 @@ menu.prototype = {
         this.boutons_on();
     },
     bt_valider_clavier_menu:function(){
-        if (this.zone_clavier_menu.value=="281576461"){
+        if (this.zone_clavier_menu.value=="171479930"){
             this.texte_clavier_menu.visible=false;
             this.clavier_menu.visible=false;
             this.bouton_croix_clavier_menu.visible=false;
@@ -516,7 +479,7 @@ menu.prototype = {
         this.boutons_on();
     },
     bt_ok:function(){
-        if (this.zone_ecran_pc1.value=="VISICALC"){
+        if (this.zone_ecran_pc1.value=="VISICALC" || this.zone_ecran_pc1.value=="visicalc"){
             this.flag_pc1=true;
             this.bt_croix_ecran1.visible=true;
             this.bt_download.visible=true;
@@ -587,6 +550,7 @@ menu.prototype = {
             this.python_bug.visible=false;
             this.bt_run.visible=true;
             this.zone_pc2_python.visible=true;
+            this.bt_delimiter.visible=true;
             this.pc2_python.visible=true;
             this.bt_croix_pc2_python.visible=true;
             this.boutons_off();
@@ -646,6 +610,7 @@ menu.prototype = {
             this.zone_pc2_python.visible=true;
             this.pc2_python.visible=true;
             this.bt_croix_pc2_python.visible=true;
+            this.bt_delimiter.visible=true;;
             this.boutons_off();
         };
     },
@@ -680,6 +645,7 @@ menu.prototype = {
         this.bt_run.visible=false;
         this.pc2_python.visible=false;
         this.bt_croix_pc2_python.visible=false;
+        this.bt_delimiter.visible=false;
         this.boutons_on();
     },
     bt_anneau:function(){
@@ -799,6 +765,10 @@ menu.prototype = {
         this.postit.visible=false;
         this.bt_croix_postit.visible=false;
         this.boutons_on();
+    },
+    bt_delimiter:function(){
+
     }
+    
     
 }
