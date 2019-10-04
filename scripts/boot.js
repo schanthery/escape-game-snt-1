@@ -6,7 +6,8 @@ Phaser.Device.whenReady(function () {
     game.plugins.add(PhaserInput.Plugin);
 });
 // liste des états
+game.state.add("preload",preload)
 game.state.add('menu', menu);
 // lancement du jeu
-game.state.start('menu');
+game.state.start('preload');
 // fin du boot
