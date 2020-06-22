@@ -625,7 +625,7 @@ menu.prototype = {
         this.boutons_on();
     },
     bt_matrix:function(){
-        var url="https://youtu.be/wW7LbGHE0yQ";
+        var url="https://youtu.be/0uDT7Zs4YGw";
         var win = window.open(url, '_blank');
     },
     bt_run:function(){
@@ -668,7 +668,7 @@ menu.prototype = {
         this.boutons_off();
     },
     bt_gandalf:function(){
-        var url="https://youtu.be/Ygnez_odlNg";
+        var url="https://youtu.be/Q9ErK5s-0aY";
         var win = window.open(url, '_blank');
     },
     bt_croix_gandalf:function(){
